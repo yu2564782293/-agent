@@ -14,6 +14,8 @@
 
 ## 构建（命令行）
 
+- 需要本机已安装 Android SDK，并配置 `ANDROID_HOME`，或由 Android Studio 自动生成 `local.properties`
+
 ```bash
 ./gradlew :app:assembleDebug
 ```

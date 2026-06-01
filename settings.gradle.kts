@@ -1,12 +1,16 @@
 pluginManagement {
-    repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
+    resolutionStrategy {
+        eachPlugin {
+            when (requested.id.id) {
+                "com.android.application" -> useModule("com.android.tools.build:gradle:8.5.2")
+                "org.jetbrains.kotlin.android" -> useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
+                "org.jetbrains.kotlin.plugin.serialization" -> useModule("org.jetbrains.kotlin:kotlin-serialization:2.0.21")
+                "org.jetbrains.kotlin.plugin.compose" -> useModule("org.jetbrains.kotlin:compose-compiler-gradle-plugin:2.0.21")
             }
         }
+    }
+    repositories {
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -22,4 +26,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "android-agent"
 include(":app")
-
